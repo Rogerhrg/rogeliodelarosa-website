@@ -23,3 +23,5 @@ entries.forEach(e => {
 });
 }, {threshold: 0.1});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.getElementById("year").textContent = new Date().getFullYear();
