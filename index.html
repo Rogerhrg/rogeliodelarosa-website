@@ -1,272 +1,340 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rogelio De La Rosa · Desarrollo Digital y Mejora de Procesos</title>
+  <title>Rogelio De La Rosa · Desarrollo Web y Consultoría</title>
+  
+  <!-- Preload de fuentes críticas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/generated/logo.png" type="image/png">
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <img src="images/Logo-Manuscrito.png" alt="Rogelio De La Rosa">
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#services">Servicios</a></li>
-    <li><a href="#portfolio">Proyectos</a></li>
-    <li><a href="#cta" class="nav-cta">Contacto</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile drawer -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about"     onclick="closeMenu()">Sobre mí</a>
-  <a href="#services"  onclick="closeMenu()">Servicios</a>
-  <a href="#portfolio" onclick="closeMenu()">Proyectos</a>
-  <a href="#cta"       onclick="closeMenu()">Contacto →</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-text">
-    <span class="hero-eyebrow">Monterrey, N.L. · Desarrollo Digital · Automatización</span>
-    <h1>Procesos claros.<br><em>Software</em> que sí se usa.</h1>
-    <p class="hero-sub">
-      Acompaño a PYMEs a diseñar y construir plataformas digitales útiles: diagnóstico, diseño y entrega en producción con un enfoque práctico.
-    </p>
-    <div class="hero-cta">
-      <a href="#portfolio" class="btn-p">Ver proyectos</a>
-      <a href="#cta"       class="btn-s">Agendar llamada</a>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="images/generated/logo.png" alt="Rogelio De La Rosa">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services" class="nav-link">Servicios</a></li>
+        <li><a href="#portfolio" class="nav-link">Proyectos</a></li>
+        <li><a href="#about" class="nav-link">Sobre mí</a></li>
+        <li><a href="#cta" class="btn-primary-sm glow-primary">Contacto</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services" class="mobile-link">Servicios</a>
+    <a href="#portfolio" class="mobile-link">Proyectos</a>
+    <a href="#about" class="mobile-link">Sobre mí</a>
+    <a href="#cta" class="mobile-link btn-primary-sm glow-primary">Contacto</a>
   </div>
-  <div class="hero-visual">
-    <div class="stat-card">
-      <div class="stat-num">5+</div>
-      <div class="stat-label">Años integrando ingeniería,<br>procesos y tecnología</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">MVP</div>
-      <div class="stat-label">Producto operativo en semanas,<br>con alcance bien definido</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">DE</div>
-      <div class="stat-label">Experiencia internacional en<br>TU Ilmenau, Alemania</div>
-    </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-text reveal">
-    <div class="section-label">Sobre mí</div>
-    <h2>Ingeniería industrial.<br>Enfoque práctico.</h2>
-    <div class="divider"></div>
-    <p>
-      Soy <strong>Rogelio De La Rosa</strong>, ingeniero industrial egresado de la UANL con experiencia en desarrollo web, automatización de procesos y mejora continua. He trabajado en entornos industriales, académicos y digitales con un enfoque consistente: <strong>entender el proceso antes de diseñar la solución</strong>.
-    </p>
-    <p>
-      Aplico principios de <strong>Lean Manufacturing y Six Sigma</strong> en operaciones, flujos administrativos y plataformas digitales: reducir desperdicio, estandarizar y documentar para sostener las mejoras.
-    </p>
-    <p>
-      Realicé un <strong>intercambio académico en la TU Ilmenau, Alemania</strong> y una práctica profesional en <strong>Siemens Healthineers</strong>, colaborando en planeación y calidad industrial. Esa etapa fortaleció mi disciplina y capacidad de adaptación.
-    </p>
-
-    <!-- Experience mini-timeline -->
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-icon">💻</div>
-        <div class="exp-content">
-          <div class="exp-title">Desarrollador de automatizaciones — Wiki Talent Academy</div>
-          <div class="exp-meta">San Pedro Garza García, N.L. · 2022 – Actualidad</div>
+  <!-- HERO SECTION -->
+  <header id="hero" class="hero-section">
+    <!-- Partículas de fondo animadas -->
+    <div id="particles-container"></div>
+    
+    <div class="hero-content">
+      <div class="hero-text-area">
+        <div class="hero-label fade-in-up">
+          <span class="emoji">⚡</span> Desarrollo Web Premium &amp; Automatización
+        </div>
+        <h1 class="hero-title fade-in-up delay-1">
+          Rogelio De La Rosa <br>
+          <span class="text-gradient">Ingeniería &amp; Código</span>
+        </h1>
+        <p class="hero-subtitle fade-in-up delay-2">
+          Transformo procesos complejos en plataformas digitales de alto rendimiento. Diseño y desarrollo web enfocado en la usabilidad, automatización y mejora continua para PYMEs y negocios escalables.
+        </p>
+        <div class="hero-actions fade-in-up delay-3">
+          <a href="#cta" class="btn-primary glow-primary pulse-btn">Iniciar Proyecto</a>
+          <a href="#portfolio" class="btn-outline">Ver Trabajo</a>
         </div>
       </div>
-      <div class="exp-item">
-        <div class="exp-icon">📊</div>
-        <div class="exp-content">
-          <div class="exp-title">Asistente de operaciones — SigmaPRO</div>
-          <div class="exp-meta">Monterrey, N.L. · 2021 – 2022 · Lean &amp; Six Sigma</div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-icon">🏭</div>
-        <div class="exp-content">
-          <div class="exp-title">Practicante de planeación — Siemens Healthineers</div>
-          <div class="exp-meta">Kemnath, Alemania · Mar – Jul 2018</div>
+      
+      <div class="hero-visual-area fade-in-rotate delay-4">
+        <div class="sphere">
+          <div class="sphere-inner">
+            <img src="images/generated/hero_visual.png" alt="Hero Visual 3D" class="hero-3d-img">
+          </div>
         </div>
       </div>
     </div>
+  </header>
 
-    <div class="about-badges">
-      <span class="badge">⚙️ Ing. Industrial · UANL</span>
-      <span class="badge">🏭 Lean &amp; Six Sigma</span>
-      <span class="badge">DE Siemens · TU Ilmenau</span>
-      <span class="badge">🇬🇧 Inglés B2 · Alemán B1</span>
-      <span class="badge">💻 Bubble.io · WordPress · MERN</span>
+  <!-- SOCIAL PROOF / METRICS -->
+  <section class="social-proof">
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <span class="metric-num" data-target="5">0</span><span class="metric-plus">+</span>
+        <span class="metric-label">Años de Exp.</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-num" data-target="20">0</span><span class="metric-plus">+</span>
+        <span class="metric-label">Proyectos Completados</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-text glow-text">MVP</span>
+        <span class="metric-label">En Semanas</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="about-right reveal">
-    <img src="images/Perfil CV.jpg" alt="Rogelio De La Rosa" class="profile-photo">
-    <div class="pillars">
-      <div class="pillar">
-        <span class="pillar-icon">🔍</span>
-        <h4>Análisis de procesos</h4>
-        <p>Identifico cuellos de botella y variabilidad antes de diseñar la solución.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">🤖</span>
-        <h4>Automatización y APIs</h4>
-        <p>WhatsApp API, Mailchimp y PDFs dinámicos para procesos más rápidos.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">📈</span>
-        <h4>Dashboards y KPIs</h4>
-        <p>Indicadores claros para decisiones basadas en datos, no intuición.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">🎓</span>
-        <h4>Capacitación y documentación</h4>
-        <p>Entrego con guías y capacitación para que el cambio perdure.</p>
-      </div>
+  <!-- SERVICES (FLIP CARDS) -->
+  <section id="services" class="section services-section">
+    <div class="section-header fade-in-up">
+      <h2 class="section-title">Lo que construyo para tu empresa</h2>
+      <p class="section-desc">Consultoría integral: diagnóstico, diseño, implementación y soporte experto.</p>
     </div>
-  </div>
-</section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-header reveal">
-    <div>
-      <div class="section-label">Servicios</div>
-      <h2>Lo que puedo construir<br>para tu empresa</h2>
-      <div class="divider"></div>
-    </div>
-    <p class="services-intro">
-      Trabajo con PYMEs que necesitan digitalizar procesos críticos sin depender de un gran equipo. Aporto acompañamiento integral: diagnóstico, diseño, implementación y soporte.
-    </p>
-  </div>
-  <div class="service-grid">
-    <div class="service-card reveal">
-      <div class="service-num">01</div>
-      <h3>MVP en Bubble.io</h3>
-      <p>Construyo tu aplicación web desde cero: CRM, LMS, portales de clientes o sistemas internos. Alcance definido, entrega rápida y base escalable.</p>
-      <div class="service-tags">
-        <span class="tag">Bubble.io</span><span class="tag">No-Code</span><span class="tag">CRM</span><span class="tag">LMS</span><span class="tag">APIs</span>
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card-flip">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="images/generated/service_1.png" alt="Desarrollo Web Custom" class="service-image">
+            <div class="service-overlay">
+              <h3 class="service-title-front">Desarrollo Plataformas MVP</h3>
+            </div>
+          </div>
+          <div class="service-card-back glass-card">
+            <h3 class="service-title-back">Plataformas MVP</h3>
+            <p class="service-description">Construyo aplicaciones web desde cero: CRM, LMS, portales de clientes. Alcance definido, entrega rápida y base escalable para validar tu idea.</p>
+            <div class="service-features">
+              <span class="feature-tag">Bubble.io</span>
+              <span class="feature-tag">MERN</span>
+              <span class="feature-tag">Escalabilidad</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-num">02</div>
-      <h3>Diseño &amp; Web WordPress</h3>
-      <p>Sitios profesionales con WordPress (Elementor, Divi). Contenido claro, diseño limpio y orientación a conversión desde el día uno.</p>
-      <div class="service-tags">
-        <span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">UI/UX</span><span class="tag">Mobile-First</span>
-      </div>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-num">03</div>
-      <h3>Automatización &amp; consultoría</h3>
-      <p>Mapeo de procesos, eliminación de desperdicios y soluciones digitales que reducen tiempos y errores de forma medible.</p>
-      <div class="service-tags">
-        <span class="tag">Lean</span><span class="tag">WhatsApp API</span><span class="tag">Diagnóstico</span><span class="tag">Roadmap</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="reveal">
-    <div class="section-label">Proyectos</div>
-    <h2>Trabajo real para negocios reales</h2>
-    <div class="divider"></div>
-  </div>
-  <div class="portfolio-grid">
-
-    <!-- Wiki Talent -->
-    <div class="project-card dark-card reveal">
-      <div class="proj-header wt-bg">
-        <img src="images/Wiki-Logo.png" alt="Wiki Talent Academy">
+      <!-- Service 2 -->
+      <div class="service-card-flip">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="images/generated/service_2.png" alt="Diseño WordPress" class="service-image">
+            <div class="service-overlay">
+              <h3 class="service-title-front">Diseño Web Premium</h3>
+            </div>
+          </div>
+          <div class="service-card-back glass-card">
+            <h3 class="service-title-back">Diseño Web Premium</h3>
+            <p class="service-description">Sitios web corporativos de alto impacto. Diseño limpio, orientación a conversión, y experiencias fluidas con estética moderna y rápida velocidad de carga.</p>
+            <div class="service-features">
+              <span class="feature-tag">UI/UX</span>
+              <span class="feature-tag">Conversión</span>
+              <span class="feature-tag">Performance</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project-body dark-body">
-        <span class="project-type">Trabajo actual · 2022 - Hoy · Bubble.io</span>
-        <h3>Wiki Talent Academy — CRM/LMS + automatizaciones</h3>
-        <p>Plataforma académica en Bubble.io con dashboards KPI, automatizaciones por WhatsApp API y correo, y documentos dinámicos que reemplazan hojas de cálculo.</p>
-        <div class="result-pills">
-          <span class="pill pill-dark">10-15 min → automático</span>
-          <span class="pill pill-dark">20 min → 1 min por propuesta</span>
-          <span class="pill pill-dark">0 pérdida de info</span>
+
+      <!-- Service 3 -->
+      <div class="service-card-flip">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <!-- Reuse image 1 if we don't have enough generated ones yet -->
+            <img src="images/generated/service_3.png" alt="Automatización" class="service-image" onerror="this.src='images/generated/service_1.png'">
+            <div class="service-overlay">
+              <h3 class="service-title-front">Automatización & APIs</h3>
+            </div>
+          </div>
+          <div class="service-card-back glass-card">
+            <h3 class="service-title-back">Automatización & APIs</h3>
+            <p class="service-description">Conexión de sistemas, integración de WhatsApp API, envíos automáticos y generación de reportes. Elimina el trabajo manual y los errores repetitivos.</p>
+            <div class="service-features">
+              <span class="feature-tag">Integraciones</span>
+              <span class="feature-tag">APIs</span>
+              <span class="feature-tag">Workflows</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card-flip">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <!-- Reuse image 2 if we don't have enough generated ones yet -->
+            <img src="images/generated/service_4.png" alt="Consultoría Procesos" class="service-image" onerror="this.src='images/generated/service_2.png'">
+            <div class="service-overlay">
+              <h3 class="service-title-front">Consultoría Operativa</h3>
+            </div>
+          </div>
+          <div class="service-card-back glass-card">
+            <h3 class="service-title-back">Consultoría Operativa</h3>
+            <p class="service-description">Aplicación de principios Lean Six Sigma para mapear procesos antes de digitalizarlos. Reducción de variabilidad y estandarización medible.</p>
+            <div class="service-features">
+              <span class="feature-tag">Lean</span>
+              <span class="feature-tag">Six Sigma</span>
+              <span class="feature-tag">Diagnóstico</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- SigmaPro -->
-    <div class="project-card reveal">
-      <div class="proj-header sp-bg">
-        <img src="images/SigmaPro Corporate Logo.png" alt="SigmaPro Logo">
+  <!-- SHOWCASE / PORTFOLIO -->
+  <section id="portfolio" class="section showcase-section">
+    <div class="section-header fade-in-up">
+      <h2 class="section-title">Trabajo real, impacto medible</h2>
+      <p class="section-desc">Sistemas implementados que resuelven problemas reales de negocio.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Proyecto 1 -->
+      <div class="glass-card showcase-card fade-in-up">
+        <div class="showcase-content">
+          <div class="showcase-meta">
+            <span class="label">CRM / LMS Automatizado</span>
+            <span class="tech-stack">Bubble.io</span>
+          </div>
+          <h3 class="showcase-title">Wiki Talent Academy</h3>
+          <p class="showcase-desc">Plataforma académica integral con dashboards KPI, automatizaciones vía WhatsApp API y emisión de documentos dinámicos.</p>
+          <ul class="showcase-results">
+            <li><span class="check">✓</span> Procesos de 15min reducidos a segundos</li>
+            <li><span class="check">✓</span> Cero pérdida de información de leads</li>
+          </ul>
+        </div>
       </div>
-      <div class="project-body">
-        <span class="project-type">Cliente · 2021 - 2022 · WordPress + Lean</span>
-        <h3>SigmaPRO — Web, newsletter y capacitación</h3>
-        <p>Migración a WordPress con rediseño completo. Newsletter en Mailchimp, documentación de procesos Lean y capacitación técnica en video para Minitab.</p>
-        <div class="result-pills">
-          <span class="pill pill-light">WordPress + Mailchimp</span>
-          <span class="pill pill-light">Lean Manufacturing</span>
-          <span class="pill pill-light">Capacitación Minitab</span>
+
+      <!-- Proyecto 2 -->
+      <div class="glass-card showcase-card fade-in-up delay-1">
+        <div class="showcase-content">
+          <div class="showcase-meta">
+            <span class="label">Web Corporativa & Capacitación</span>
+            <span class="tech-stack">Lean • Mailchimp</span>
+          </div>
+          <h3 class="showcase-title">SigmaPRO</h3>
+          <p class="showcase-desc">Rediseño completo de plataforma para consultora industrial. Integración de newsletter, base documental y capacitación en video de herramientas técnicas.</p>
+          <ul class="showcase-results">
+            <li><span class="check">✓</span> Centralización de recursos Lean</li>
+            <li><span class="check">✓</span> Flujo automatizado de captación</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Proyecto 3 -->
+      <div class="glass-card showcase-card fade-in-up delay-2">
+        <div class="showcase-content">
+          <div class="showcase-meta">
+            <span class="label">Proyecto Propio</span>
+            <span class="tech-stack">Bubble.io • LMS</span>
+          </div>
+          <h3 class="showcase-title">Unisesorías</h3>
+          <p class="showcase-desc">Desarrollo de plataforma propietaria para cursos intensivos de ingreso a la universidad, fusionando administración CRM y experiencia de aprendizaje LMS.</p>
+          <ul class="showcase-results">
+            <li><span class="check">✓</span> Experiencia unificada estudiante-admin</li>
+            <li><span class="check">✓</span> Gestión automatizada de pagos y accesos</li>
+          </ul>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Unisesorías -->
-    <div class="project-card reveal">
-      <img src="images/Banner Asesorias.jpg" alt="Unisesorías" class="proj-banner">
-      <div class="project-body">
-        <span class="project-type">Proyecto propio · Bubble.io</span>
-        <h3>Unisesorías — Plataforma PAA</h3>
-        <p>Plataforma propia para cursos intensivos de preparación para exámenes de admisión universitaria. CRM y LMS integrados en una sola herramienta.</p>
-        <div class="result-pills">
-          <span class="pill pill-light">CRM + LMS</span>
-          <span class="pill pill-light">Bubble.io</span>
-          <span class="pill pill-light">Proyecto propio</span>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section about-section">
+    <div class="about-grid">
+      <div class="about-visual fade-in-up">
+        <div class="profile-glow">
+          <img src="images/Perfil CV.jpg" alt="Rogelio De La Rosa" class="profile-img">
+        </div>
+        <div class="about-stats glass-card mt-md">
+          <div class="stat-row">
+            <span class="stat-icon">🎓</span>
+            <span>Ingeniería Industrial (UANL)</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-icon">🌍</span>
+            <span>TU Ilmenau (Alemania)</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-icon">🏭</span>
+            <span>Experiencia Siemens Healthineers</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content fade-in-up delay-1">
+        <div class="section-label">Sobre Mí</div>
+        <h2 class="section-title text-left">Ingeniería pura.<br>Enfoque práctico.</h2>
+        <div class="about-text">
+          <p>Soy <strong>Rogelio De La Rosa</strong>, desarrollador web premium e ingeniero industrial. Combino la lógica rigurosa de los procesos industriales con la agilidad del desarrollo moderno para crear soluciones que realmente funcionen.</p>
+          <p>No me limito a escribir código; analizo el comportamiento de los sistemas. Utilizo las metodologías <strong>Lean Manufacturing y Six Sigma</strong> para identificar cuellos de botella antes de diseñar la plataforma digital adecuada. Mi objetivo es claro: reducir desperdicios y construir software que la gente sí quiera utilizar.</p>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Desarrollo Web (MERN / WordPress)</span>
+          <span class="skill-tag">Bubble.io / NoCode</span>
+          <span class="skill-tag">Lean Six Sigma</span>
+          <span class="skill-tag">Automatización de Procesos</span>
+          <span class="skill-tag">Análisis de Datos</span>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- CTA FINAL -->
+  <section id="cta" class="cta-section">
+    <div class="cta-container glass-card fade-in-up">
+      <div class="cta-glow-bg"></div>
+      <h2 class="cta-title">¿Tienes una idea compleja? <br>La simplificamos y la lanzamos.</h2>
+      <p class="cta-desc">No necesitas un equipo gigantesco corporativo. Necesitas un aliado estratégico que entienda la parte operativa de tu visión y la traduzca en código eficiente y rentable.</p>
+      
+      <div class="cta-buttons">
+        <a href="mailto:contacto@rogeliodelarosa.com" class="btn-primary btn-large glow-primary pulse-btn">
+          <svg viewBox="0 0 24 24" fill="none" class="btn-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          Enviar Correo Directo
+        </a>
+        <a href="https://wa.me/528129135475" target="_blank" class="btn-outline btn-large">
+          <svg viewBox="0 0 24 24" fill="none" class="btn-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          WhatsApp: 812 913 5475
+        </a>
+      </div>
+    </div>
+  </section>
 
-<!-- CTA -->
-<section id="cta">
-  <h2>¿Tienes una idea?<br>La aterrizamos y la ponemos en marcha.</h2>
-  <p>No necesitas un equipo de 10 personas ni un presupuesto corporativo. Necesitas un aliado que entienda tu operación y entregue una solución usable.</p>
-  <div class="contact-row">
-    <a href="mailto:contacto@rogeliodelarosa.com" class="btn-email">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-      Enviar correo
-    </a>
-    <a href="https://wa.me/528129135475" target="_blank" class="btn-wa">
-      812 913 5475
-    </a>
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="images/generated/logo.png" alt="Rogelio De La Rosa Logo" class="footer-logo">
+        <p class="footer-slogan">Sistemas eficientes.<br>Diseño inquebrantable.</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-col">
+          <h4>Navegación</h4>
+          <a href="#hero">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#portfolio">Proyectos</a>
+          <a href="#about">Sobre Mí</a>
+        </div>
+        <div class="link-col">
+          <h4>Contacto</h4>
+          <a href="mailto:contacto@rogeliodelarosa.com">Email</a>
+          <a href="https://wa.me/528129135475" target="_blank">WhatsApp</a>
+          <a href="https://linkedin.com/in/rogelio-de-la-rosa" target="_blank">LinkedIn</a>
+          <a href="https://github.com/Rogerhrg" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Rogelio De La Rosa. Todos los derechos reservados. | Monterrey, N.L.</p>
+    </div>
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-  <a href="#hero" class="footer-logo"><img src="images/Logo-Manuscrito.png" alt="Rogelio De La Rosa"></a>
-  <div class="footer-links">
-    <a href="https://linkedin.com/in/rogelio-de-la-rosa" target="_blank">LinkedIn</a>
-    <a href="https://github.com/Rogerhrg"               target="_blank">GitHub</a>
-    <a href="mailto:contacto@rogeliodelarosa.com">contacto@rogeliodelarosa.com</a>
-  </div>
-  <span>© <span id="year"></span> · Rogelio De La Rosa · Monterrey, N.L.</span>
-</footer>
-
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
