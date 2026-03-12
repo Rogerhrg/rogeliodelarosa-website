@@ -150,6 +150,62 @@ document.addEventListener('DOMContentLoaded', () => {
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+
+    // ==========================================
+    // 7. CONTACT FORM AJAX SUBMISSION
+    // ==========================================
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+    const formResponse = document.getElementById('formResponse');
+
+    if (contactForm && submitBtn && formResponse) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Evitar recarga
+
+            // 1. Estado de Carga
+            submitBtn.classList.add('loading');
+            const originalText = btnText.textContent;
+            btnText.textContent = 'Enviando...';
+            
+            formResponse.style.display = 'none';
+            formResponse.className = 'form-response';
+
+            // 2. Recopilar Datos
+            const formData = new FormData(contactForm);
+
+            try {
+                // 3. Enviar Petición
+                const response = await fetch('contact.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                // 4. Manejar Respuesta
+                formResponse.style.display = 'block';
+                formResponse.textContent = result.message;
+
+                if (result.status === 'success') {
+                    formResponse.classList.add('success');
+                    contactForm.reset(); // Limpiar formulario
+                } else {
+                    formResponse.classList.add('error');
+                }
+            } catch (error) {
+                // 5. Manejar Error de Red o Servidor
+                console.error('Error enviando formulario:', error);
+                formResponse.style.display = 'block';
+                formResponse.className = 'form-response error';
+                formResponse.textContent = 'Hubo un error al conectar con el servidor. Intenta enviarnos un WhatsApp directamente.';
+            } finally {
+                // 6. Restaurar Botón
+                submitBtn.classList.remove('loading');
+                btnText.textContent = originalText;
+            }
+        });
+    }
 });
 
 // Utility: Debounce function for scroll events
