@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wiki Talent Academy · Caso de Estudio | Rogelio De La Rosa</title>
+  <meta name="description" content="Caso de estudio: Cómo transformé una academia basada en Word y Zoom en un CRM/LMS automatizado con Bubble.io, WhatsApp API y Mailchimp.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+  <link rel="icon" href="../images/generated/logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- BACK NAVIGATION -->
+  <nav class="back-nav">
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Volver al Portafolio
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <img src="../images/generated/logo.png" alt="Rogelio De La Rosa">
+    </a>
+  </nav>
+
+  <!-- PROJECT HERO -->
+  <header class="project-hero">
+    <div class="project-hero-content">
+      <div class="project-badges fade-in-up">
+        <span class="project-badge primary">🎓 CRM / LMS</span>
+        <span class="project-badge accent">🤖 Automatización</span>
+        <span class="project-badge primary">📱 WhatsApp API</span>
+      </div>
+      <h1 class="fade-in-up delay-1">Wiki Talent <span class="text-gradient">Academy</span></h1>
+      <p class="project-subtitle fade-in-up delay-2">
+        Academia de preparación para exámenes de admisión a universidades. Transformé una operación manual basada en Word y Zoom en una plataforma CRM/LMS automatizada que gestiona alumnos, pagos, comunicaciones y exámenes de simulación.
+      </p>
+    </div>
+  </header>
+
+  <!-- THE PROBLEM -->
+  <section class="case-section">
+    <div class="case-section-inner">
+      <span class="case-section-label">El Problema</span>
+      <h2 class="case-section-title">Una academia que crecía más rápido que sus herramientas</h2>
+      <p class="case-text">
+        Wiki Talent Academy operaba como la mayoría de las academias pequeñas: clases por Zoom, contenido en documentos de Word, y una montaña de tareas manuales que consumían tiempo valioso. A medida que crecía la demanda, los procesos no escalaban.
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-card fade-in-up">
+          <div class="problem-icon">📋</div>
+          <h4>Tracking manual de alumnos</h4>
+          <p>Para saber cómo iba un alumno, había que preguntarle directamente al maestro. Sin visibilidad del progreso.</p>
+        </div>
+        <div class="problem-card fade-in-up delay-1">
+          <div class="problem-icon">✉️</div>
+          <h4>Correos manuales</h4>
+          <p>Cada resultado de examen de simulación se comunicaba manualmente a alumnos y padres de familia.</p>
+        </div>
+        <div class="problem-card fade-in-up delay-2">
+          <div class="problem-icon">📝</div>
+          <h4>Google Forms como CRM</h4>
+          <p>Los datos de prospectos e inscritos se capturaban en forms sin conexión con pagos ni control de acceso.</p>
+        </div>
+        <div class="problem-card fade-in-up delay-3">
+          <div class="problem-icon">🎨</div>
+          <h4>Propuestas manuales en Canva</h4>
+          <p>Cada propuesta académica se diseñaba manualmente con calendario coloreado. Varios minutos por propuesta.</p>
+        </div>
+        <div class="problem-card fade-in-up delay-3">
+          <div class="problem-icon">📱</div>
+          <h4>CRM desordenado</h4>
+          <p>Contactos desclasificados sin distinción entre prospectos, inscritos y papás. Comunicación caótica.</p>
+        </div>
+        <div class="problem-card fade-in-up delay-4">
+          <div class="problem-icon">📄</div>
+          <h4>Sin exámenes propios</h4>
+          <p>No existía un sistema interno para simular exámenes de admisión y medir el avance real de los alumnos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION -->
+  <section class="case-section">
+    <div class="case-section-inner">
+      <span class="case-section-label">La Transformación</span>
+      <h2 class="case-section-title">De lo manual a lo automatizado</h2>
+      <p class="case-text">
+        Construí una plataforma integral en Bubble.io que reemplazó cada proceso manual con un sistema automatizado, conectado y escalable.
+      </p>
+
+      <div class="timeline">
+        <!-- 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="timeline-title">📊 Tracking de Alumnos</h4>
+            <div class="before-after">
+              <div class="ba-item ba-before">Preguntarle al maestro cómo iba cada alumno</div>
+              <span class="ba-arrow">→</span>
+              <div class="ba-item ba-after">Cuentas de alumno con progreso visible en dashboard</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="timeline-title">📧 Resultados de Simulación</h4>
+            <div class="before-after">
+              <div class="ba-item ba-before">Envío manual de correos con resultados de exámenes</div>
+              <span class="ba-arrow">→</span>
+              <div class="ba-item ba-after">Automatización con merges de Mailchimp por evento</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="timeline-title">📋 Captura de Prospectos e Inscritos</h4>
+            <div class="before-after">
+              <div class="ba-item ba-before">Google Forms sin conexión con pagos ni acceso</div>
+              <span class="ba-arrow">→</span>
+              <div class="ba-item ba-after">Sistema con control de pago: solo inscritos crean cuenta</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="timeline-title">📑 Generación de Propuestas</h4>
+            <div class="before-after">
+              <div class="ba-item ba-before">Diseño manual en Canva con calendario coloreado — minutos por propuesta</div>
+              <span class="ba-arrow">→</span>
+              <div class="ba-item ba-after">Generación automática (PDFMonkey) sobre grupos agendados — segundos</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="timeline-title">💬 Comunicación con Papás y Alumnos</h4>
+            <div class="before-after">
+              <div class="ba-item ba-before">CRM con contactos desclasificados, mensajes manuales</div>
+              <span class="ba-arrow">→</span>
+              <div class="ba-item ba-after">WhatsApp API con plantillas automáticas segmentadas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4 class="timeline-title">📝 Exámenes de Simulación PAA</h4>
+            <div class="before-after">
+              <div class="ba-item ba-before">Sin simulaciones propias del examen de admisión</div>
+              <span class="ba-arrow">→</span>
+              <div class="ba-item ba-after">Simulaciones integradas con resultados y predicción de puntaje</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="case-section">
+    <div class="case-section-inner">
+      <span class="case-section-label">Stack Tecnológico</span>
+      <h2 class="case-section-title">Herramientas clave del proyecto</h2>
+
+      <div class="stack-grid">
+        <div class="stack-tag"><span class="tag-icon">⚡</span> Bubble.io</div>
+        <div class="stack-tag"><span class="tag-icon">📧</span> Mailchimp</div>
+        <div class="stack-tag"><span class="tag-icon">💬</span> WhatsApp API</div>
+        <div class="stack-tag"><span class="tag-icon">📄</span> PDFMonkey</div>
+        <div class="stack-tag"><span class="tag-icon">📊</span> CRM Custom</div>
+        <div class="stack-tag"><span class="tag-icon">🎓</span> LMS Custom</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="case-section">
+    <div class="case-section-inner">
+      <span class="case-section-label">Resultados</span>
+      <h2 class="case-section-title">Impacto medible en la operación</h2>
+
+      <div class="results-grid">
+        <div class="result-card fade-in-up">
+          <div class="result-metric">15min → seg</div>
+          <div class="result-label">Generación de propuestas académicas</div>
+        </div>
+        <div class="result-card fade-in-up delay-1">
+          <div class="result-metric">0%</div>
+          <div class="result-label">Pérdida de información de leads y prospectos</div>
+        </div>
+        <div class="result-card fade-in-up delay-2">
+          <div class="result-metric">100%</div>
+          <div class="result-label">Automatización de resultados de simulación</div>
+        </div>
+        <div class="result-card fade-in-up delay-3">
+          <div class="result-metric">CRM → LMS</div>
+          <div class="result-label">Evolución de sistema desordenado a plataforma unificada</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY ROLE -->
+  <section class="case-section">
+    <div class="case-section-inner">
+      <span class="case-section-label">Mi Rol</span>
+      <h2 class="case-section-title">Evolución dentro del proyecto</h2>
+      <p class="case-text">
+        Entré a Wiki Talent Academy como maestro de matemáticas. Al identificar las oportunidades de mejora en sus procesos, propuse e implementé la plataforma completa. Hoy soy Coordinador Académico y Desarrollador de la infraestructura tecnológica.
+      </p>
+
+      <div class="role-timeline">
+        <div class="role-item">
+          <div class="role-icon">📐</div>
+          <div class="role-title">Maestro de Matemáticas</div>
+          <div class="role-desc">Inicio: enseñanza directa a alumnos</div>
+        </div>
+        <span class="role-arrow">→</span>
+        <div class="role-item">
+          <div class="role-icon">⚙️</div>
+          <div class="role-title">Desarrollador de Plataforma</div>
+          <div class="role-desc">Diseño y construcción del CRM/LMS</div>
+        </div>
+        <span class="role-arrow">→</span>
+        <div class="role-item">
+          <div class="role-icon">🎯</div>
+          <div class="role-title">Coordinador Académico</div>
+          <div class="role-desc">Gestión total: tecnología + operación</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-cta">
+    <h2>¿Tu negocio necesita una <span class="text-gradient">transformación similar</span>?</h2>
+    <p>Cuéntame sobre tu operación. Juntos encontramos dónde está el cuello de botella y lo solucionamos.</p>
+    <div class="case-cta-actions">
+      <a href="../index.html#cta" class="btn-primary glow-primary pulse-btn">
+        <span class="btn-text">Iniciar Conversación</span>
+        <svg viewBox="0 0 24 24" fill="none" class="btn-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </a>
+      <a href="https://wa.me/528129135475" target="_blank" class="btn-outline">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="../images/generated/logo.png" alt="Rogelio De La Rosa Logo" class="footer-logo">
+        <p class="footer-slogan">Sistemas eficientes.<br>Diseño inquebrantable.</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-col">
+          <h4>Navegación</h4>
+          <a href="../index.html#hero">Inicio</a>
+          <a href="../index.html#services">Servicios</a>
+          <a href="../index.html#portfolio">Proyectos</a>
+          <a href="../index.html#about">Sobre Mí</a>
+        </div>
+        <div class="link-col">
+          <h4>Contacto</h4>
+          <a href="mailto:contacto@rogeliodelarosa.com">Email</a>
+          <a href="https://wa.me/528129135475" target="_blank">WhatsApp</a>
+          <a href="https://linkedin.com/in/rogelio-de-la-rosa" target="_blank">LinkedIn</a>
+          <a href="https://github.com/Rogerhrg" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Rogelio De La Rosa. Todos los derechos reservados. | Monterrey, N.L.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Update year
+    const yearSpan = document.getElementById('year');
+    if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
