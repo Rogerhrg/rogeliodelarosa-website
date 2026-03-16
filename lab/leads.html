@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capturador de Leads · Lab</title>
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="icon" href="../images/generated/logo.png" type="image/png">
+</head>
+<body>
+
+<nav class="lab-nav">
+  <div class="lab-nav-inner">
+    <div class="lab-nav-brand">
+      <a href="../index.html"><img src="../images/generated/logo.png" alt="Rogelio De La Rosa"></a>
+      <span class="lab-nav-logo-sep"></span>
+      <a href="index.html" style="color:var(--text-muted);font-weight:600;font-size:.875rem;">Lab</a>
+      <span style="color:var(--text-faint);">/</span>
+      <span class="lab-nav-tool-name">Capturador de Leads</span>
+    </div>
+    <div class="lab-nav-links">
+      <a href="index.html" class="lab-nav-back">← Todas las herramientas</a>
+      <a href="../index.html" class="lab-nav-home">Portafolio</a>
+    </div>
+  </div>
+</nav>
+
+<main class="lab-main">
+  <div class="lab-page-header animate-fade-up">
+    <div class="lab-page-label">🚀 Lead Capture</div>
+    <h1 class="lab-page-title">Capturador de Leads</h1>
+    <p class="lab-page-desc">Demo de captación: rellena el formulario y observa el pipeline de automatizaciones en acción.</p>
+  </div>
+
+  <div class="leads-layout">
+
+    <!-- Form -->
+    <div class="glass leads-form-panel animate-fade-up">
+      <h3 class="leads-panel-title">📋 Datos del Lead</h3>
+      <form id="leadForm" autocomplete="off" novalidate>
+        <div class="lab-form-row">
+          <div class="lab-form-group">
+            <label class="lab-label">Nombre *</label>
+            <input type="text" id="lName" class="lab-input" placeholder="Ej. María García" required>
+          </div>
+          <div class="lab-form-group">
+            <label class="lab-label">Empresa</label>
+            <input type="text" id="lCompany" class="lab-input" placeholder="Ej. InnovateMX">
+          </div>
+        </div>
+        <div class="lab-form-row">
+          <div class="lab-form-group">
+            <label class="lab-label">Email *</label>
+            <input type="email" id="lEmail" class="lab-input" placeholder="maria@empresa.com" required>
+          </div>
+          <div class="lab-form-group">
+            <label class="lab-label">Teléfono</label>
+            <input type="tel" id="lPhone" class="lab-input" placeholder="+52 81...">
+          </div>
+        </div>
+        <div class="lab-form-group">
+          <label class="lab-label">Servicio de interés</label>
+          <select id="lService" class="lab-select">
+            <option>Desarrollo Web / MVP</option>
+            <option>Automatización &amp; APIs</option>
+            <option>Consultoría Operativa</option>
+            <option>Diseño Web Premium</option>
+          </select>
+        </div>
+        <div class="lab-form-group">
+          <label class="lab-label">Mensaje</label>
+          <textarea id="lMessage" class="lab-input lab-textarea" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+        </div>
+        <button type="submit" id="leadSubmitBtn" class="btn-primary btn-full">
+          <span id="btnText">Enviar Lead</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Pipeline -->
+    <div class="leads-pipeline-panel">
+      <div class="glass pipeline-card animate-fade-up" style="animation-delay:.1s">
+        <h3 class="leads-panel-title">⚡ Pipeline de Automatización</h3>
+        <p style="font-size:.85rem;color:var(--text-faint);margin-bottom:1.5rem;">Al recibir un lead, el sistema dispara estas acciones en secuencia:</p>
+
+        <div id="pipeline">
+          <div class="pipeline-step" id="step-1">
+            <div class="step-icon-wrap">
+              <div class="step-icon" id="icon-1">📧</div>
+              <div class="step-connector"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Correo de Bienvenida</div>
+              <div class="step-desc">Email personalizado al lead con info del servicio solicitado vía SendGrid.</div>
+              <div class="step-status" id="status-1"><span class="status-idle">⏳ En espera</span></div>
+            </div>
+          </div>
+          <div class="pipeline-step" id="step-2">
+            <div class="step-icon-wrap">
+              <div class="step-icon" id="icon-2">🔔</div>
+              <div class="step-connector"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Notificación Interna</div>
+              <div class="step-desc">Alerta al equipo comercial sobre el nuevo lead por email interno.</div>
+              <div class="step-status" id="status-2"><span class="status-idle">⏳ En espera</span></div>
+            </div>
+          </div>
+          <div class="pipeline-step" id="step-3">
+            <div class="step-icon-wrap">
+              <div class="step-icon" id="icon-3">🤖</div>
+              <div class="step-connector"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Alerta por Telegram</div>
+              <div class="step-desc">Mensaje al bot de Telegram del equipo con datos completos del lead.</div>
+              <div class="step-status" id="status-3"><span class="status-idle">⏳ En espera</span></div>
+            </div>
+          </div>
+          <div class="pipeline-step" id="step-4">
+            <div class="step-icon-wrap">
+              <div class="step-icon" id="icon-4">📊</div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Registro en CRM</div>
+              <div class="step-desc">Ficha del lead creada en el CRM con datos y seguimiento asignado.</div>
+              <div class="step-status" id="status-4"><span class="status-idle">⏳ En espera</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="glass pipeline-success-card" id="successCard" style="display:none;">
+        <div class="success-anim"><div class="success-ring" id="successRing">✓</div></div>
+        <h2 class="success-title">¡Lead Registrado!</h2>
+        <p class="success-desc" id="successMsg"></p>
+        <div class="success-summary" id="successSummary"></div>
+        <button onclick="resetAll()" class="btn-primary" style="margin-top:1.5rem;">← Capturar otro lead</button>
+        <div id="confettiBox" class="confetti-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass-sm lab-note animate-fade-up" style="margin-top:1.5rem;animation-delay:.2s;">
+    <span style="font-size:1.1rem;">🔧</span>
+    <p>En producción: <strong>SendGrid/Mailchimp</strong> para emails, <strong>Telegram Bot API</strong> para alertas, y tu CRM vía <strong>REST API</strong>. Esta es una demo visual del flujo completo.</p>
+  </div>
+</main>
+
+<footer class="lab-footer">
+  <p>⚗️ <a href="index.html">Lab</a> · Demo visual — sin datos reales</p>
+</footer>
+
+<style>
+.leads-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:1.5rem;align-items:start;}
+.leads-form-panel,.pipeline-card{padding:1.75rem;}
+.leads-pipeline-panel{display:flex;flex-direction:column;gap:1.5rem;}
+.leads-panel-title{font-size:1.05rem;font-weight:700;margin-bottom:1.25rem;}
+.pipeline{display:flex;flex-direction:column;}
+.pipeline-step{display:flex;gap:16px;padding:12px 0;opacity:.4;transition:opacity .5s ease;}
+.pipeline-step.is-active{opacity:1;}
+.pipeline-step.is-done{opacity:.8;}
+.step-icon-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.step-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.04);border:2px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:1.15rem;transition:all .4s ease;flex-shrink:0;}
+.pipeline-step.is-active .step-icon{background:rgba(var(--primary-rgb),.15);border-color:rgba(var(--primary-rgb),.5);box-shadow:0 0 16px rgba(var(--primary-rgb),.3);animation:pulse-ring 1.5s ease infinite;}
+.pipeline-step.is-done .step-icon{background:rgba(var(--success-rgb),.15);border-color:var(--success);box-shadow:0 0 12px rgba(var(--success-rgb),.25);}
+.step-connector{flex:1;width:2px;background:rgba(255,255,255,.06);margin:4px 0;min-height:24px;}
+.pipeline-step.is-done .step-connector{background:rgba(var(--success-rgb),.35);}
+.step-content{flex:1;padding-bottom:8px;}
+.step-title{font-size:.95rem;font-weight:700;color:var(--text-primary);margin-bottom:3px;}
+.step-desc{font-size:.8rem;color:var(--text-faint);margin-bottom:8px;line-height:1.5;}
+.step-status{font-size:.8rem;}
+.status-idle{color:var(--text-faint);}
+.status-running{color:var(--primary-400);display:flex;align-items:center;gap:6px;}
+.status-spin{display:inline-block;animation:spin .8s linear infinite;}
+.status-done{color:var(--success);font-weight:600;}
+.pipeline-success-card{padding:2.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.success-anim{display:flex;justify-content:center;margin-bottom:1.25rem;}
+.success-ring{width:80px;height:80px;border-radius:50%;background:rgba(var(--success-rgb),.12);border:3px solid var(--success);display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--success);animation:check-pop .6s cubic-bezier(.34,1.56,.64,1) both;box-shadow:0 0 30px rgba(var(--success-rgb),.3);}
+.success-title{font-size:1.5rem;font-weight:800;margin-bottom:.5rem;}
+.success-desc{color:var(--text-muted);font-size:.9rem;margin-bottom:1rem;}
+.success-summary{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius-md);padding:1rem 1.25rem;text-align:left;font-size:.85rem;color:var(--text-secondary);line-height:1.8;}
+.confetti-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+.confetti-piece{position:absolute;top:-10px;width:8px;height:8px;border-radius:2px;animation:confetti-fall 1.2s ease forwards;}
+.lab-note{display:flex;align-items:flex-start;gap:.75rem;padding:1rem 1.25rem;}
+.lab-note p{font-size:.85rem;color:var(--text-muted);line-height:1.6;}
+@keyframes pulse-ring{0%,100%{box-shadow:0 0 16px rgba(var(--primary-rgb),.3);}50%{box-shadow:0 0 28px rgba(var(--primary-rgb),.6);}}
+@media(max-width:900px){.leads-layout{grid-template-columns:1fr;}}
+</style>
+
+<script>
+const steps = [
+  null,
+  { delay:0,    dur:1300, doneMsg:'✓ Email enviado a {email}',             origIcon:'📧' },
+  { delay:1450, dur:1200, doneMsg:'✓ Notificación enviada al equipo',       origIcon:'🔔' },
+  { delay:2800, dur:1100, doneMsg:'✓ Mensaje Telegram enviado',             origIcon:'🤖' },
+  { delay:4050, dur:1000, doneMsg:'✓ Lead registrado en CRM',               origIcon:'📊' },
+];
+
+function setRunning(i) {
+  document.getElementById('step-'+i).classList.add('is-active');
+  document.getElementById('status-'+i).innerHTML = '<span class="status-running"><span class="status-spin">⟳</span> Procesando...</span>';
+}
+function setDone(i, msg) {
+  const el = document.getElementById('step-'+i);
+  el.classList.remove('is-active'); el.classList.add('is-done');
+  document.getElementById('icon-'+i).textContent = '✓';
+  document.getElementById('status-'+i).innerHTML = `<span class="status-done">${msg}</span>`;
+}
+function resetSteps() {
+  for (let i=1;i<=4;i++) {
+    const el = document.getElementById('step-'+i);
+    el.classList.remove('is-active','is-done');
+    document.getElementById('icon-'+i).textContent = steps[i].origIcon;
+    document.getElementById('status-'+i).innerHTML = '<span class="status-idle">⏳ En espera</span>';
+  }
+}
+
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name    = document.getElementById('lName').value.trim();
+  const email   = document.getElementById('lEmail').value.trim();
+  const company = document.getElementById('lCompany').value.trim();
+  const service = document.getElementById('lService').value;
+  if (!name || !email) { alert('Nombre y email son obligatorios.'); return; }
+
+  document.getElementById('leadSubmitBtn').disabled = true;
+  document.getElementById('btnText').textContent = 'Procesando...';
+  resetSteps();
+  document.getElementById('successCard').style.display = 'none';
+
+  for (let i=1;i<=4;i++) {
+    const s = steps[i];
+    setTimeout(()=> setRunning(i), s.delay);
+    setTimeout(()=>{
+      setDone(i, s.doneMsg.replace('{email}', email));
+      if (i === 4) setTimeout(()=> showSuccess(name, email, company, service), 500);
+    }, s.delay + s.dur);
+  }
+});
+
+function showSuccess(name, email, company, service) {
+  const card = document.getElementById('successCard');
+  card.style.display = 'block';
+  card.classList.add('animate-fade-in');
+  document.getElementById('successMsg').textContent = `${name}, tu solicitud fue registrada. El equipo te contactará pronto.`;
+  document.getElementById('successSummary').innerHTML =
+    `<strong>Resumen:</strong><br>📛 ${escHtml(name)}${company ? ' · '+escHtml(company) : ''}<br>📧 ${escHtml(email)}<br>🛠 ${escHtml(service)}`;
+  launchConfetti();
+  card.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function launchConfetti() {
+  const box = document.getElementById('confettiBox');
+  box.innerHTML = '';
+  const colors = ['#3B82F6','#22C55E','#F59E0B','#A855F7','#EF4444','#60A5FA'];
+  for (let i=0;i<32;i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-piece';
+    p.style.cssText = `left:${Math.random()*100}%;background:${colors[i%colors.length]};animation-delay:${Math.random()*.8}s;animation-duration:${.9+Math.random()*.6}s;transform:rotate(${Math.random()*360}deg);`;
+    box.appendChild(p);
+  }
+}
+
+function resetAll() {
+  document.getElementById('leadForm').reset();
+  document.getElementById('leadSubmitBtn').disabled = false;
+  document.getElementById('btnText').textContent = 'Enviar Lead';
+  document.getElementById('successCard').style.display = 'none';
+  resetSteps();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+</script>
+</body>
+</html>

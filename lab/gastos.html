@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker · Lab</title>
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="icon" href="../images/generated/logo.png" type="image/png">
+</head>
+<body>
+
+<nav class="lab-nav">
+  <div class="lab-nav-inner">
+    <div class="lab-nav-brand">
+      <a href="../index.html"><img src="../images/generated/logo.png" alt="Rogelio De La Rosa"></a>
+      <span class="lab-nav-logo-sep"></span>
+      <a href="index.html" style="color:var(--text-muted);font-weight:600;font-size:.875rem;">Lab</a>
+      <span style="color:var(--text-faint);">/</span>
+      <span class="lab-nav-tool-name">Expense Tracker</span>
+    </div>
+    <div class="lab-nav-links">
+      <a href="index.html" class="lab-nav-back">← Todas las herramientas</a>
+      <a href="../index.html" class="lab-nav-home">Portafolio</a>
+    </div>
+  </div>
+</nav>
+
+<main class="lab-main">
+  <div class="lab-page-header animate-fade-up">
+    <div class="lab-page-label">💰 Gastos</div>
+    <h1 class="lab-page-title">Expense Tracker</h1>
+    <p class="lab-page-desc">Registra gastos por categoría y visualiza tu distribución en tiempo real con Chart.js.</p>
+  </div>
+
+  <!-- Stats -->
+  <div id="statGrid" class="stat-grid animate-fade-up" style="animation-delay:.05s"></div>
+
+  <div class="exp-layout animate-fade-up" style="animation-delay:.1s">
+
+    <!-- Left: form + list -->
+    <div class="exp-left">
+      <div class="glass exp-card">
+        <h3 class="exp-section-title">➕ Nuevo Gasto</h3>
+        <div class="lab-form-group">
+          <label class="lab-label">Descripción *</label>
+          <input id="expDesc" class="lab-input" placeholder="Ej. Tacos de canasta">
+        </div>
+        <div class="lab-form-row">
+          <div class="lab-form-group">
+            <label class="lab-label">Monto *</label>
+            <input type="number" id="expAmount" class="lab-input" placeholder="0.00" step="0.01" min="0.01">
+          </div>
+          <div class="lab-form-group">
+            <label class="lab-label">Categoría</label>
+            <select id="expCat" class="lab-select">
+              <option>Comida</option><option>Transporte</option><option>Ocio</option>
+              <option>Trabajo</option><option>Salud</option><option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="lab-form-group">
+          <label class="lab-label">Fecha</label>
+          <input type="date" id="expDate" class="lab-input">
+        </div>
+        <button id="addExpBtn" class="btn-primary btn-full">Registrar Gasto</button>
+      </div>
+
+      <div class="glass exp-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+          <h3 class="exp-section-title" style="margin-bottom:0;">📋 Historial</h3>
+          <button id="clearAllBtn" class="btn-ghost" style="font-size:.8rem;display:none;">🗑 Limpiar</button>
+        </div>
+        <div id="expList"></div>
+      </div>
+    </div>
+
+    <!-- Right: charts -->
+    <div class="exp-right">
+      <div class="glass exp-card">
+        <h3 class="exp-section-title">🍩 Por Categoría</h3>
+        <div class="chart-wrap"><canvas id="donutChart"></canvas></div>
+        <div id="catLegend" class="cat-legend"></div>
+      </div>
+      <div class="glass exp-card">
+        <h3 class="exp-section-title">📊 Últimos 7 días</h3>
+        <div class="chart-wrap"><canvas id="barChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="lab-footer">
+  <p>⚗️ <a href="index.html">Lab</a> · Datos guardados en tu navegador (localStorage)</p>
+</footer>
+
+<style>
+.exp-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:1.5rem;align-items:start;}
+.exp-left,.exp-right{display:flex;flex-direction:column;gap:1.5rem;}
+.exp-card{padding:1.5rem;}
+.exp-section-title{font-size:1rem;font-weight:700;margin-bottom:1.25rem;}
+.exp-list{display:flex;flex-direction:column;gap:2px;max-height:380px;overflow-y:auto;}
+.exp-item{display:flex;align-items:center;gap:10px;padding:10px 8px;border-radius:8px;transition:var(--transition);}
+.exp-item:hover{background:rgba(255,255,255,.03);}
+.exp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.exp-info{flex:1;min-width:0;}
+.exp-name{font-size:.9rem;font-weight:600;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.exp-meta{font-size:.75rem;color:var(--text-faint);display:flex;gap:4px;}
+.exp-amount{font-size:.9rem;font-weight:700;color:var(--text-primary);white-space:nowrap;}
+.chart-wrap{position:relative;width:100%;max-height:220px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;}
+.chart-wrap canvas{max-height:220px;}
+.cat-legend{display:flex;flex-direction:column;gap:6px;}
+.cat-leg-item{display:flex;align-items:center;gap:8px;font-size:.82rem;}
+.cat-leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.cat-leg-name{flex:1;color:var(--text-secondary);}
+.cat-leg-val{font-weight:600;color:var(--text-primary);}
+@media(max-width:900px){.exp-layout{grid-template-columns:1fr;}}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+const EXP_KEY = 'rdlr_expenses';
+let expenses = JSON.parse(localStorage.getItem(EXP_KEY) || '[]');
+
+const CAT_COLORS = {
+  Comida:'#F59E0B', Transporte:'#3B82F6', Ocio:'#A855F7',
+  Trabajo:'#22C55E', Salud:'#EF4444', Otro:'#71717A'
+};
+const CATS = Object.keys(CAT_COLORS);
+
+// Set today's date as default
+document.getElementById('expDate').value = new Date().toISOString().slice(0,10);
+document.getElementById('expDate').max   = new Date().toISOString().slice(0,10);
+
+function save() { localStorage.setItem(EXP_KEY, JSON.stringify(expenses)); }
+
+// ── Chart instances ───────────────────────────────────────────────────────
+let donutChart = null, barChart = null;
+
+function getDayKeys() {
+  return Array.from({length:7},(_,i)=>{
+    const d = new Date(); d.setDate(d.getDate()-6+i);
+    return d.toISOString().slice(0,10);
+  });
+}
+function dayLabel(d) {
+  const labels = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  const date = new Date(d+'T12:00:00');
+  return `${labels[date.getDay()]} ${date.getDate()}`;
+}
+function fmt(n) { return '$'+n.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+// ── Render ────────────────────────────────────────────────────────────────
+function render() {
+  const sorted = [...expenses].sort((a,b) => b.date.localeCompare(a.date));
+
+  // Stats
+  const total = expenses.reduce((s,e) => s+e.amount, 0);
+  const avg   = expenses.length ? total/expenses.length : 0;
+  const catTotals = {};
+  expenses.forEach(e => { catTotals[e.category] = (catTotals[e.category]||0) + e.amount; });
+  const topCat = Object.entries(catTotals).sort((a,b)=>b[1]-a[1])[0]?.[0] || '—';
+
+  document.getElementById('statGrid').innerHTML = `
+    <div class="glass stat-card"><div class="stat-value" style="color:var(--primary-400);">${fmt(total)}</div><div class="stat-label">Total registrado</div></div>
+    <div class="glass stat-card"><div class="stat-value">${expenses.length}</div><div class="stat-label">Movimientos</div></div>
+    <div class="glass stat-card"><div class="stat-value" style="color:var(--success);">${fmt(avg)}</div><div class="stat-label">Promedio por gasto</div></div>
+    <div class="glass stat-card"><div class="stat-value" style="font-size:1.4rem;color:var(--warning);">${escHtml(topCat)}</div><div class="stat-label">Top categoría</div></div>
+  `;
+
+  // Expense list
+  document.getElementById('clearAllBtn').style.display = expenses.length ? 'flex' : 'none';
+  const expList = document.getElementById('expList');
+  if (sorted.length === 0) {
+    expList.innerHTML = `<div class="empty-state"><div class="empty-icon">💸</div><p>Sin gastos registrados.<br>Agrega uno arriba.</p></div>`;
+  } else {
+    expList.innerHTML = sorted.map(e => `
+      <div class="exp-item">
+        <div class="exp-dot" style="background:${CAT_COLORS[e.category]||'#71717A'};"></div>
+        <div class="exp-info">
+          <div class="exp-name">${escHtml(e.desc)}</div>
+          <div class="exp-meta"><span>${escHtml(e.category)}</span><span>·</span><span>${formatDate(e.date)}</span></div>
+        </div>
+        <div class="exp-amount">${fmt(e.amount)}</div>
+        <button class="btn-icon-only" onclick="deleteExp('${e.id}')" title="Eliminar">✕</button>
+      </div>
+    `).join('');
+  }
+
+  // Charts
+  const filledCats  = CATS.filter(c => catTotals[c]);
+  const catLabels   = filledCats;
+  const catData     = filledCats.map(c => catTotals[c]);
+  const catColors   = filledCats.map(c => CAT_COLORS[c]);
+
+  const dayKeys  = getDayKeys();
+  const dayData  = dayKeys.map(d => expenses.filter(e=>e.date===d).reduce((s,e)=>s+e.amount,0));
+  const dayLabels= dayKeys.map(dayLabel);
+
+  // Donut
+  if (donutChart) { donutChart.destroy(); donutChart = null; }
+  if (catData.length > 0) {
+    Chart.defaults.color = '#A1A1AA';
+    Chart.defaults.font.family = "'Inter',sans-serif";
+    donutChart = new Chart(document.getElementById('donutChart'), {
+      type:'doughnut',
+      data:{ labels:catLabels, datasets:[{ data:catData, backgroundColor:catColors, borderColor:'#09090B', borderWidth:3, hoverOffset:8 }] },
+      options:{ responsive:true, maintainAspectRatio:true, cutout:'65%', plugins:{ legend:{display:false}, tooltip:{callbacks:{label:c=>' '+fmt(c.parsed)}} } }
+    });
+    document.getElementById('catLegend').innerHTML = filledCats.map((c,i) => `
+      <div class="cat-leg-item">
+        <span class="cat-leg-dot" style="background:${catColors[i]};"></span>
+        <span class="cat-leg-name">${c}</span>
+        <span class="cat-leg-val">${fmt(catData[i])}</span>
+      </div>`).join('');
+  } else {
+    document.getElementById('donutChart').parentElement.innerHTML =
+      `<div class="empty-state"><div class="empty-icon" style="font-size:2rem;">📊</div><p>Sin datos aún</p></div>`;
+    document.getElementById('catLegend').innerHTML = '';
+  }
+
+  // Bar
+  if (barChart) { barChart.destroy(); barChart = null; }
+  barChart = new Chart(document.getElementById('barChart'), {
+    type:'bar',
+    data:{ labels:dayLabels, datasets:[{ data:dayData, backgroundColor:'rgba(59,130,246,.3)', borderColor:'rgba(59,130,246,.9)', borderWidth:2, borderRadius:6, hoverBackgroundColor:'rgba(59,130,246,.55)' }] },
+    options:{ responsive:true, maintainAspectRatio:true,
+      scales:{ x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{size:11}}}, y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{font:{size:11},callback:v=>'$'+v}} },
+      plugins:{legend:{display:false}}
+    }
+  });
+}
+
+function formatDate(d) {
+  const dt = new Date(d+'T12:00:00');
+  return dt.toLocaleDateString('es-MX',{day:'numeric',month:'short'});
+}
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── Actions ───────────────────────────────────────────────────────────────
+document.getElementById('addExpBtn').addEventListener('click', () => {
+  const desc   = document.getElementById('expDesc').value.trim();
+  const amount = parseFloat(document.getElementById('expAmount').value);
+  const cat    = document.getElementById('expCat').value;
+  const date   = document.getElementById('expDate').value || new Date().toISOString().slice(0,10);
+  if (!desc || !amount || amount <= 0) { alert('Descripción y monto son requeridos.'); return; }
+  expenses.unshift({ id:Date.now().toString(36)+Math.random().toString(36).slice(2), desc, amount, category:cat, date });
+  save(); render();
+  document.getElementById('expDesc').value   = '';
+  document.getElementById('expAmount').value = '';
+});
+
+function deleteExp(id) {
+  expenses = expenses.filter(e => e.id !== id);
+  save(); render();
+}
+
+document.getElementById('clearAllBtn').addEventListener('click', () => {
+  if (confirm('¿Limpiar todos los gastos?')) { expenses = []; save(); render(); }
+});
+
+render();
+</script>
+</body>
+</html>
