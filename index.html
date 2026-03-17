@@ -94,13 +94,17 @@
   </section>
 
   <!-- SERVICES (FLIP CARDS) -->
-  <section id="services" class="section services-section">
-    <div class="section-header fade-in-up">
+  <section id="services" class="section services-section" style="position: relative; overflow: hidden;">
+    <!-- Abstract marketing background image -->
+    <img src="images/generated/marketing_post_bg.png" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; z-index: 0; mix-blend-mode: screen;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(0,0,0,0.6) 50%, var(--bg-primary) 100%); z-index: 1;"></div>
+    
+    <div class="section-header fade-in-up" style="position: relative; z-index: 2;">
       <h2 class="section-title">Lo que construyo para tu empresa</h2>
       <p class="section-desc">Consultoría integral: diagnóstico, diseño, implementación y soporte experto.</p>
     </div>
 
-    <div class="services-grid">
+    <div class="services-grid" style="position: relative; z-index: 2;">
       <!-- Service 1 -->
       <div class="service-card-flip">
         <div class="service-card-inner">
@@ -190,13 +194,17 @@
   </section>
 
   <!-- SHOWCASE / PORTFOLIO -->
-  <section id="portfolio" class="section showcase-section">
-    <div class="section-header fade-in-up">
+  <section id="portfolio" class="section showcase-section" style="position: relative; overflow: hidden;">
+    <!-- Abstract marketing background image -->
+    <img src="images/generated/marketing_post_bg.png" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; z-index: 0; mix-blend-mode: screen; transform: scaleX(-1);">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, var(--bg-secondary) 0%, rgba(9,9,11,0.6) 50%, var(--bg-secondary) 100%); z-index: 1;"></div>
+    
+    <div class="section-header fade-in-up" style="position: relative; z-index: 2;">
       <h2 class="section-title">Trabajo real, impacto medible</h2>
       <p class="section-desc">Sistemas implementados que resuelven problemas reales de negocio.</p>
     </div>
 
-    <div class="portfolio-grid">
+    <div class="portfolio-grid" style="position: relative; z-index: 2;">
       <!-- Proyecto 1 -->
       <a href="proyectos/wiki-talent" class="glass-card showcase-card fade-in-up">
         <div class="showcase-image-container">
@@ -259,7 +267,7 @@
     </div>
 
     <!-- Experiencia Adicional / Prácticas -->
-    <div class="portfolio-grid" style="margin-top: 2rem;">
+    <div class="portfolio-grid" style="margin-top: 2rem; position: relative; z-index: 2;">
       <!-- Siemens Healthineers -->
       <div class="glass-card showcase-card fade-in-up delay-3" style="display: flex; flex-direction: column; gap: 0;">
         <div class="showcase-image-container">
@@ -305,8 +313,12 @@
   </section>
 
   <!-- ABOUT SECTION -->
-  <section id="about" class="section about-section">
-    <div class="about-grid">
+  <section id="about" class="section about-section" style="position: relative; overflow: hidden;">
+    <!-- Abstract marketing background image -->
+    <img src="images/generated/marketing_post_bg.png" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; z-index: 0; mix-blend-mode: screen;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(0,0,0,0.6) 50%, var(--bg-primary) 100%); z-index: 1;"></div>
+
+    <div class="about-grid" style="position: relative; z-index: 2;">
       <div class="about-visual fade-in-up">
         <div class="profile-glow">
           <img src="images/Perfil CV.jpg" alt="Rogelio De La Rosa" class="profile-img">
@@ -356,8 +368,12 @@
   </section>
 
   <!-- CTA FINAL (CONTACT FORM) -->
-  <section id="cta" class="cta-section">
-    <div class="cta-container glass-card fade-in-up">
+  <section id="cta" class="cta-section" style="position: relative; overflow: hidden;">
+    <!-- Abstract marketing background image -->
+    <img src="images/generated/marketing_post_bg.png" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.25; z-index: 0; mix-blend-mode: screen;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, var(--bg-primary) 0%, rgba(0,0,0,0.5) 50%, var(--bg-primary) 100%); z-index: 1;"></div>
+    
+    <div class="cta-container glass-card fade-in-up" style="position: relative; z-index: 2;">
       <div class="cta-glow-bg"></div>
       <h2 class="cta-title">¿Tienes una idea compleja? <br>La simplificamos y la lanzamos.</h2>
       <p class="cta-desc">Cuéntame sobre tu proyecto. Envíame un mensaje y te contactaré a la brevedad para agendar una consultoría inicial sin costo.</p>
