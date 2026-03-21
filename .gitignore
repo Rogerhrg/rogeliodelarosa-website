@@ -1,3 +1,10 @@
-**vscode
+# Configuración sensible
 config.php
-database.sql
+.vscode/sftp.json
+
+# Base de datos con datos reales
+*.sql
+
+# Archivos de sistema y temporales
+.DS_Store
+*.log
