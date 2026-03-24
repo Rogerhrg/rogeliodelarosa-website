@@ -1,9 +1,5 @@
 # Friction First Git Ignore
-config.php
 .vscode/sftp.json
 *.log
 .DS_Store
 Thumbs.db
-
-# Ignorar volcados de DB con datos (opcional si quieres subir solo estructura)
-# frictionfirst_db.sql

@@ -2,7 +2,7 @@
 /**
  * Friction First - Política de Privacidad
  */
-require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../../config/frictionfirst.config.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

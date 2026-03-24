@@ -3,7 +3,7 @@
  * Friction First - Database Connection (PDO)
  */
 
-require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../../config/frictionfirst.config.php';
 
 function getDB() {
     static $pdo = null;

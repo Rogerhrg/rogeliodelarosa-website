@@ -32,7 +32,7 @@ function jsonExit($status, $message) {
 }
 
 // 4. Cargar Configuración
-$configFile = __DIR__ . '/config.php';
+$configFile = __DIR__ . '/../config/config.php';
 if (!file_exists($configFile)) {
     jsonExit('error', 'Falta el archivo de configuración del servidor.');
 }

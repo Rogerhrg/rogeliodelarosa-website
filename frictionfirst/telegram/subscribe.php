@@ -7,7 +7,7 @@
  * https://api.telegram.org/bot<TOKEN>/setWebhook?url=https://rogeliodelarosa.com/frictionfirst/telegram/subscribe.php
  */
 
-require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../../config/frictionfirst.config.php';
 require_once __DIR__ . '/../includes/db.php';
 
 // Handle webhook from Telegram (bot receives messages)
@@ -25,13 +25,13 @@ if ($update && isset($update['message'])) {
             "🔥 *Bienvenido a Friction First*\n\n" .
             "Recibe sabiduría estoica cada mañana a las 7:00 AM.\n\n" .
             "Para suscribirte, envía:\n" .
-            "`/subscribe TU_ID`\n\n" .
+            "`/suscribe TU_ID`\n\n" .
             "Encuentra tu ID en tu panel: rogeliodelarosa.com/frictionfirst/forge\n\n" .
             "_Memento Mori_ ⏳"
         );
     }
     // Handle /subscribe command
-    elseif (strpos($text, '/subscribe') === 0) {
+    elseif (strpos($text, '/subscribe') === 0 || strpos($text, '/suscribe') === 0) {
         $parts = explode(' ', $text);
         $userId = isset($parts[1]) ? (int)$parts[1] : 0;
 
@@ -50,7 +50,7 @@ if ($update && isset($update['message'])) {
                     "✅ *¡Suscripción exitosa!*\n\n" .
                     "Hola {$username}, recibirás una frase estoica cada mañana a las 7:00 AM.\n\n" .
                     "🔥 _Choose Hard, Live Easy._\n\n" .
-                    "Para cancelar, envía /unsubscribe"
+                    "Para cancelar, envía /unsuscribe"
                 );
             } else {
                 sendTelegramMessage($chatId,
@@ -59,18 +59,18 @@ if ($update && isset($update['message'])) {
             }
         } else {
             sendTelegramMessage($chatId,
-                "⚠️ Envía el comando con tu ID:\n`/subscribe TU_ID`\n\nEncuentra tu ID en tu panel."
+                "⚠️ Envía el comando con tu ID:\n`/suscribe TU_ID`\n\nEncuentra tu ID en tu panel."
             );
         }
     }
     // Handle /unsubscribe
-    elseif ($text === '/unsubscribe') {
+    elseif ($text === '/unsubscribe' || $text === '/unsuscribe') {
         $db = getDB();
         $stmt = $db->prepare('UPDATE ff_users SET telegram_subscribed = 0 WHERE telegram_chat_id = ?');
         $stmt->execute([$chatId]);
 
         sendTelegramMessage($chatId,
-            "👋 Te has desuscrito de las frases diarias.\n\nPuedes volver cuando quieras con /subscribe TU_ID"
+            "👋 Te has desuscrito de las frases diarias.\n\nPuedes volver cuando quieras con /suscribe TU_ID"
         );
     }
     // Default response
@@ -79,8 +79,8 @@ if ($update && isset($update['message'])) {
             "🔥 *Friction First Bot*\n\n" .
             "Comandos disponibles:\n" .
             "/start - Información del bot\n" .
-            "/subscribe TU_ID - Suscribirte\n" .
-            "/unsubscribe - Cancelar suscripción"
+            "/suscribe TU_ID - Suscribirte\n" .
+            "/unsuscribe - Cancelar suscripción"
         );
     }
 }

@@ -36,7 +36,7 @@ $csrfToken = generateCSRFToken();
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🔥</text></svg>">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -63,11 +63,11 @@ $csrfToken = generateCSRFToken();
             <div class="hero-badge">⚡ Choose Hard, Live Easy</div>
             <h1>TU TIEMPO ES <span>FINITO</span></h1>
             <p class="hero-subtitle">
-                Confronta la realidad de tus semanas restantes. Recibe sabiduría estoica que aplica al mundo moderno. Forja tu carácter cada día en la fragua.
+                Confronta la realidad de tus semanas restantes. Recibe sabiduría estoica que aplica al mundo moderno. Forja tu carácter cada día en la forja.
             </p>
             <div class="hero-ctas">
                 <button class="btn btn-primary" data-open-modal data-tab="register">
-                    Entra a la Fragua →
+                    Entra a la Forja →
                 </button>
                 <a href="#features" class="btn btn-outline">Descubre Más</a>
             </div>
@@ -92,7 +92,7 @@ $csrfToken = generateCSRFToken();
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">La Fragua</span>
+                <span class="section-tag">La Forja</span>
                 <h2 class="section-title">FORJA TU CONCIENCIA</h2>
                 <p class="section-subtitle">Herramientas diseñadas para confrontarte con el tiempo y forjar disciplina estoica.</p>
             </div>
@@ -131,6 +131,25 @@ $csrfToken = generateCSRFToken();
         </div>
     </section>
 
+    <!-- ========== PHILOSOPHY ========== -->
+    <section class="philosophy-section" style="padding: 4rem 0;">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="images/motivational_friction.png" alt="El obstáculo es el camino" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <span class="section-tag">Nuestra Filosofía</span>
+                    <h2 class="section-title" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">EL OBSTÁCULO ES EL CAMINO</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.6; color: var(--text-color);">
+                        Friction first tiene la filosofía de <strong>primero lo primero</strong>, empezar por lo difícil.
+                        El obstáculo es el camino y los obstáculos generan fricción. No huyas de la resistencia; utilízala para forjar tu carácter.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ========== DAILY QUOTE PREVIEW ========== -->
     <section class="quote-preview">
         <div class="container">
@@ -149,7 +168,7 @@ $csrfToken = generateCSRFToken();
     <!-- ========== CTA ========== -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">¿LISTO PARA LA <span class="text-accent">FRAGUA</span>?</h2>
+            <h2 class="cta-title">¿LISTO PARA LA <span class="text-accent">FORJA</span>?</h2>
             <p class="cta-text">Crea tu cuenta gratis, confronta tus semanas restantes y empieza a forjar tu mejor versión. Sin excusas.</p>
             <button class="btn btn-primary" data-open-modal data-tab="register">
                 Crear Cuenta Gratis →
@@ -165,7 +184,7 @@ $csrfToken = generateCSRFToken();
                 <a href="legal/terms.php">Términos y Condiciones</a>
                 <a href="https://rogeliodelarosa.com" target="_blank">rogeliodelarosa.com</a>
             </div>
-            <p class="footer-copy">© <?= date('Y') ?> Friction First por Rogelio De La Rosa. Memento Mori.</p>
+            <p class="footer-copy">© <?= date('Y') ?> Friction First por Rogelio De La Rosa.</p>
         </div>
     </footer>
 
@@ -174,7 +193,7 @@ $csrfToken = generateCSRFToken();
         <div class="modal">
             <button class="modal-close" data-close-modal aria-label="Cerrar">✕</button>
 
-            <h2 class="modal-title">LA FRAGUA</h2>
+            <h2 class="modal-title">LA FORJA</h2>
             <p class="modal-subtitle">Entra y confronta tu tiempo.</p>
 
             <!-- Tabs -->
@@ -199,7 +218,7 @@ $csrfToken = generateCSRFToken();
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block">
-                    <span class="btn-text">Entrar a la Fragua</span>
+                    <span class="btn-text">Entrar a la Forja</span>
                     <span class="btn-spinner"></span>
                 </button>
             </form>

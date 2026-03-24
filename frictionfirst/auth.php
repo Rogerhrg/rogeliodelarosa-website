@@ -90,7 +90,7 @@ function handleRegister() {
 
     echo json_encode([
         'success'  => true,
-        'message'  => 'Cuenta creada. Bienvenido a la fragua.',
+        'message'  => 'Cuenta creada. Bienvenido a la forja.',
         'redirect' => FF_BASE_URL . '/forge/'
     ]);
 }

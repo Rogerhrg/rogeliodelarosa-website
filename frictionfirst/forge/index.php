@@ -52,7 +52,7 @@ $csrfToken = generateCSRFToken();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Fragua — Friction First</title>
+    <title>La Forja — Friction First</title>
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Fonts -->
@@ -181,6 +181,11 @@ $csrfToken = generateCSRFToken();
                     </div>
                 </section>
 
+                <!-- ===== PANEL 2.5: HABIT TRACKER ===== -->
+                <section class="forge-panel forge-panel-habits" id="habitsPanel" style="grid-column: 1 / -1;">
+                    <div id="habitTrackerApp"></div>
+                </section>
+
                 <!-- ===== PANEL 3: DAILY STOIC QUOTE ===== -->
                 <section class="forge-panel forge-panel-quote">
                     <div class="panel-header">
@@ -243,11 +248,11 @@ $csrfToken = generateCSRFToken();
                                 <div>
                                     <strong>Envía tu código</strong>
                                     <p>Tu ID: <code class="copy-code"><?= $userId ?></code></p>
-                                    <p style="margin-top: 5px; font-size: 11px; color: var(--ff-gray);">O el comando completo: <code class="copy-code">/subscribe <?= $userId ?></code></p>
+                                    <p style="margin-top: 5px; font-size: 11px; color: var(--ff-gray);">O el comando completo: <code class="copy-code" style="cursor: pointer;" title="Copiar al portapapeles">/suscribe <?= $userId ?></code></p>
                                 </div>
                             </div>
                         </div>
-                        <a href="https://t.me/<?= FF_TELEGRAM_BOT_USERNAME ?>" target="_blank" class="btn btn-primary btn-block" style="margin-top: 20px;">
+                        <a href="https://t.me/<?= FF_TELEGRAM_BOT_USERNAME ?>?text=/suscribe%20<?= $userId ?>" target="_blank" class="btn btn-primary btn-block" style="margin-top: 20px;">
                             Abrir Bot en Telegram →
                         </a>
                     <?php endif; ?>
@@ -266,7 +271,7 @@ $csrfToken = generateCSRFToken();
                 <a href="<?= FF_BASE_URL ?>/legal/terms.php">Términos</a>
                 <a href="https://rogeliodelarosa.com" target="_blank">rogeliodelarosa.com</a>
             </div>
-            <p class="footer-copy">© <?= date('Y') ?> Friction First — Memento Mori.</p>
+            <p class="footer-copy">© <?= date('Y') ?> Friction First.</p>
         </div>
     </footer>
 
@@ -285,5 +290,6 @@ $csrfToken = generateCSRFToken();
         };
     </script>
     <script src="js/forge.js"></script>
+    <script src="js/habit-tracker.js"></script>
 </body>
 </html>
