@@ -151,74 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // ==========================================
-    // 7. CONTACT FORM AJAX SUBMISSION
-    // ==========================================
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
-    const formResponse = document.getElementById('formResponse');
-    const successState = document.getElementById('successState');
-    const formWrapper = contactForm ? contactForm.closest('.form-wrapper') : null;
-
-    if (contactForm && submitBtn && formResponse) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            // 1. Estado de Carga
-            submitBtn.classList.add('loading');
-            const originalText = btnText.textContent;
-            btnText.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-
-            formResponse.style.display = 'none';
-            formResponse.className = 'form-response';
-
-            // 2. Recopilar Datos
-            const formData = new FormData(contactForm);
-
-            try {
-                // 3. Enviar Petición
-                const response = await fetch('contact.php', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (result.status === 'success') {
-                    // 4a. ÉXITO → ocultar formulario, mostrar animación
-                    contactForm.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                    contactForm.style.opacity = '0';
-                    contactForm.style.transform = 'translateY(-10px)';
-                    
-                    setTimeout(() => {
-                        contactForm.style.display = 'none';
-                        if (successState) {
-                            successState.style.display = 'flex';
-                        }
-                    }, 400);
-                } else {
-                    // 4b. ERROR del servidor → mostrar mensaje inline
-                    formResponse.style.display = 'block';
-                    formResponse.textContent = result.message;
-                    formResponse.classList.add('error');
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('loading');
-                    btnText.textContent = originalText;
-                }
-            } catch (error) {
-                // 5. Error de red
-                console.error('Error enviando formulario:', error);
-                formResponse.style.display = 'block';
-                formResponse.className = 'form-response error';
-                formResponse.textContent = 'Hubo un error de conexión. Intenta enviarnos un WhatsApp directamente.';
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('loading');
-                btnText.textContent = originalText;
-            }
-        });
-    }
+  // ==========================================
+  // 7. UPDATE CURRENT YEAR
+  // ==========================================
+  const yearSpan = document.getElementById('year');
+  if(yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 });
 
 // Utility: Debounce function for scroll events
