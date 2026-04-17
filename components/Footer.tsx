@@ -34,6 +34,7 @@ export default function Footer() {
               <a href="https://wa.me/528129135475" target="_blank" rel="noopener noreferrer" className="block text-[var(--text-tertiary)] hover:text-[var(--primary-400)] transition-colors mb-4">WhatsApp</a>
               <a href="https://linkedin.com/in/rogelio-de-la-rosa" target="_blank" rel="noopener noreferrer" className="block text-[var(--text-tertiary)] hover:text-[var(--primary-400)] transition-colors mb-4">LinkedIn</a>
               <a href="https://github.com/Rogerhrg" target="_blank" rel="noopener noreferrer" className="block text-[var(--text-tertiary)] hover:text-[var(--primary-400)] transition-colors mb-4">GitHub</a>
+              <a href="https://github.com/Rogerhrg/rogeliodelarosa-website" target="_blank" rel="noopener noreferrer" className="block text-[var(--text-tertiary)] hover:text-[var(--primary-400)] transition-colors mb-4 italic text-xs">Repositorio de esta web</a>
             </div>
           </div>
         </div>

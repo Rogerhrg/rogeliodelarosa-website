@@ -28,6 +28,15 @@ const projects = [
     description: "Plataforma académica integral con automatizaciones de WhatsApp, generación de PDFs dinámicos y dashboards de rendimiento.",
     results: ["Procesos de 15min → segundos", "Retención de leads aumentada"],
   },
+  {
+    href: "https://github.com/Rogerhrg/rogeliodelarosa-website",
+    logo: "/images/generated/portfolio_website_mockup.png",
+    label: "Web Personal & Portfolio",
+    stack: "Next.js 16 • React 19 • Tailwind v4",
+    title: "Sitio Web de Marca Personal",
+    description: "Desarrollo de mi plataforma profesional optimizada para SEO y rendimiento. Construida con las últimas tecnologías para demostrar implementaciones modernas.",
+    results: ["Arquitectura de componentes limpia", "Optimización de Core Web Vitals"],
+  },
 ];
 
 export default function Portfolio() {
