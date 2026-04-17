@@ -12,7 +12,7 @@ const projects = [
   },
   {
     href: "#",
-    logo: "/images/Logo-Manuscrito.png",
+    logo: "/images/AutoClaw Image.jpg",
     label: "Asistente Personal con IA",
     stack: "Node.js • MongoDB • Telegram API",
     title: "AutoClaw",
@@ -61,8 +61,8 @@ export default function Portfolio() {
               className="flex-1 min-w-[320px] max-w-[450px] glass-card flex flex-col p-0 border-t-4 border-t-[var(--primary-500)] hover:border-t-[var(--primary-400)] hover:translate-y-[-8px] transition-all duration-400 group animate-fade-in-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="w-full h-[200px] bg-white flex items-center justify-center p-8 rounded-t-[24px] overflow-hidden">
-                <img src={project.logo} alt={project.title} className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105" />
+              <div className="w-full h-[220px] flex items-center justify-center rounded-t-[24px] overflow-hidden">
+                <img src={project.logo} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="p-8 flex-grow flex flex-col">
                 <div className="flex justify-between items-center mb-6">
@@ -91,8 +91,8 @@ export default function Portfolio() {
         <div className="max-w-[1440px] mx-auto mt-12 flex flex-wrap justify-center gap-8 relative z-10">
           {/* Siemens */}
           <div className="flex-1 min-w-[320px] max-w-[450px] glass-card flex flex-col p-0 animate-fade-in-up [animation-delay:0.6s]">
-            <div className="w-full h-[200px] bg-white flex items-center justify-center p-8 rounded-t-[24px] overflow-hidden">
-              <img src="/images/siemens-healthineers-hero.png" alt="Siemens Healthineers" className="max-w-full max-h-full object-contain" />
+            <div className="w-full h-[200px] flex items-center justify-center rounded-t-[24px] overflow-hidden">
+              <img src="/images/siemens-healthineers-hero.png" alt="Siemens Healthineers" className="w-full h-full object-cover" />
             </div>
             <div className="p-6 flex-grow flex flex-col">
               <div className="flex justify-between items-center mb-4">
@@ -112,8 +112,8 @@ export default function Portfolio() {
 
           {/* TU Ilmenau */}
           <div className="flex-1 min-w-[320px] max-w-[450px] glass-card flex flex-col p-0 animate-fade-in-up [animation-delay:0.8s]">
-            <div className="w-full h-[200px] bg-white flex items-center justify-center p-8 rounded-t-[24px] overflow-hidden">
-              <img src="/images/TU_Ilmenau_Logo_black_green.png" alt="TU Ilmenau" className="max-w-full max-h-full object-contain" />
+            <div className="w-full h-[200px] flex items-center justify-center rounded-t-[24px] overflow-hidden">
+              <img src="/images/TU_Ilmenau_Logo_black_green.png" alt="TU Ilmenau" className="w-full h-full object-cover" />
             </div>
             <div className="p-6 flex-grow flex flex-col">
               <div className="flex justify-between items-center mb-4">
