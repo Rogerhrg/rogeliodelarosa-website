@@ -1,50 +1,71 @@
-# Rogelio De La Rosa · Landing Page Premium Dark Mode
+# Personal Brand - Next.js
 
-Este proyecto es una Landing Page moderna y premium para la marca personal de **Rogelio De La Rosa**, especializado en Desarrollo Web MVP, Consultoría de Procesos, y Automatización. El diseño está basado en una estética *"Dark Luxury"* orientada al sector Tech/Consultoría, con un color de acento principal **Azul Eléctrico (`#3B82F6`)**.
+Sitio web personal de Rogelio De La Rosa, desarrollado con Next.js 16, Tailwind CSS v4 y TypeScript.
 
-## Características del Proyecto
-- **Diseño "Dark Luxury"**: Fondos ultra oscuros (`#000000`, `#09090B`) con efectos glow y glassmorphism.
-- **Color Principal**: Azul Eléctrico (`#3B82F6`).
-- **Secciones Responsive**: Hero interactivo, Métricas, Servicios (Flip-Cards 3D), Showcase de Proyectos, Sobre mí y CTA.
-- **Animaciones Nativas**: Partículas flotantes con CSS/JS, esferas 3D con Keyframes, observer para scroll animations.
-- **Performance Optimizado**: Tipografías de Google Fonts en pre-carga, JS ligero usando DOM nativo, y media queries organizadas.
+## Stack Tecnológico
 
-## Estructura de Archivos
+- **Frontend:** Next.js 16, React 19, Tailwind CSS v4, TypeScript
+- **Animaciones:** Framer Motion + CSS custom animations
+- **Deploy:** VPS con Docker (próximamente)
+
+## Estruct del Proyecto
+
 ```
-proyecto/
-├── index.html       # Estructura principal y contenido adaptado
-├── css/
-│   └── styles.css   # Todas las variables de Dark Luxury y animaciones
-├── js/
-│   └── script.js    # Interacciones, contadores animados y navbar sticky
-├── README.md        # Documentación
-└── images/
-    ├── Perfil CV.jpg             # Foto de perfil
-    ├── Logo-Manuscrito.png       # Logo original (fallback)
-    └── generated/                # Imágenes IA incorporadas 
-        ├── logo.png              # Logo vector generado
-        ├── hero_visual.png       # Elemento hero 3D
-        ├── service_1.png         # [MVP Web]
-        ├── service_2.png         # [WP Design]
-        ├── service_3.png         # [Automation]
-        └── service_4.png         # [Data/Consulting]
+Personal-Brand-Next.js/
+├── app/
+│   ├── globals.css          # Estilos globales + Tailwind
+│   ├── layout.tsx           # Layout principal
+│   ├── page.tsx             # Página principal
+│   └── proyectos/
+│       └── [slug]/
+│           └── page.tsx     # Páginas dinámicas de casos de estudio
+├── components/
+│   ├── Navbar.tsx           # Barra de navegación
+│   ├── Hero.tsx             # Sección hero con partículas
+│   ├── Metrics.tsx          # Contadores animados
+│   ├── Services.tsx         # Cards de servicios (flip)
+│   ├── Portfolio.tsx        # Grid de proyectos
+│   ├── About.tsx            # Sobre mí
+│   ├── CTA.tsx              # Llamado a la acción
+│   └── Footer.tsx           # Pie de página
+├── public/
+│   ├── images/              # Todas las imágenes del sitio
+│   └── cv/                  # Archivos PDF del CV
+└── package.json
 ```
 
-## Paleta de Colores
-*   **Fondo Primario**: `#000000` (Negro Puro)
-*   **Fondo Secundario (Cards)**: `#09090B` (Gris Ultra Oscuro)
-*   **Acento (Azul Eléctrico)**:
-    *   Base (`--primary-500`): `#3B82F6`
-    *   Hover/Gradient (`--primary-600`): `#2563EB`
-    *   Glow Shadow: `rgba(59, 130, 246, 0.4)`
+## Scripts Disponibles
 
-## Notas de Implementación (Imágenes IA)
-Las imágenes en la carpeta `/images/generated` fueron creadas utilizando IA, acorde a las especificaciones del sector *Tech/Consultoría*.
-Debido a límites de tarifa de generación (Rate Limits), actualmente el sitio cuenta con 4 imágenes de servicios que se reutilizan en el grid principal de servicios (6 espacios).  
-*Para agregar más imágenes en el futuro:*
-1. Genera la imagen con la instrucción `Professional [SERVICE] visual for Tech industry, Electric Blue...`
-2. Guárdala en `/images/generated/service_N.png`
-3. Actualiza el tag `<img>` correspondiente en el `index.html`.
+```bash
+npm run dev      # Inicia servidor de desarrollo
+npm run build    # Compila para producción
+npm run start    # Inicia servidor de producción
+npm run lint     # Ejecuta ESLint
+```
 
----
-*Diseñado e Implementado mediante Automatización de Agentes IA (Google Deepmind).*
+## Desarrollo
+
+1. Instalar dependencias:
+```bash
+npm install
+```
+
+2. Iniciar servidor de desarrollo:
+```bash
+npm run dev
+```
+
+3. Abrir http://localhost:3000
+
+## Proyectos/Casos de Estudio
+
+- **Wiki Talent Academy** - `/proyectos/wiki-talent`
+- **SigmaPRO** - `/proyectos/sigmapro`
+- **AutoClaw** - `/proyectos/autoclaw` (asistente personal con IA)
+
+## Contacto
+
+- **WhatsApp:** +52 812 913 5475
+- **Email:** contacto@rogeliodelarosa.com
+- **LinkedIn:** linkedin.com/in/rogelio-de-la-rosa
+- **GitHub:** github.com/Rogerhrg
