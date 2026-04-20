@@ -4,6 +4,7 @@ const projects = [
   {
     href: "https://everefficient.tech",
     logo: "/images/brand/everefficient-logo-full.png",
+    whiteBg: false,
     label: "SaaS CRM MVP",
     stack: "Next.js 16 • NestJS • PostgreSQL",
     title: "EverEfficient",
@@ -13,6 +14,7 @@ const projects = [
   {
     href: "#",
     logo: "/images/AutoClaw Image.jpg",
+    whiteBg: false,
     label: "Asistente Personal con IA",
     stack: "Node.js • MongoDB • Telegram API",
     title: "AutoClaw",
@@ -22,6 +24,7 @@ const projects = [
   {
     href: "#",
     logo: "/images/Wiki-Logo.png",
+    whiteBg: true,
     label: "CRM / LMS Automatizado",
     stack: "Bubble.io • WhatsApp API",
     title: "Wiki Talent Academy",
@@ -31,6 +34,7 @@ const projects = [
   {
     href: "https://github.com/Rogerhrg/rogeliodelarosa-website",
     logo: "/images/generated/portfolio_website_mockup.png",
+    whiteBg: false,
     label: "Web Personal & Portfolio",
     stack: "Next.js 16 • React 19 • Tailwind v4",
     title: "Sitio Web de Marca Personal",
@@ -61,8 +65,12 @@ export default function Portfolio() {
               className="flex-1 min-w-[320px] max-w-[450px] glass-card flex flex-col p-0 border-t-4 border-t-[var(--primary-500)] hover:border-t-[var(--primary-400)] hover:translate-y-[-8px] transition-all duration-400 group animate-fade-in-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="w-full h-[220px] flex items-center justify-center rounded-t-[24px] overflow-hidden">
-                <img src={project.logo} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className={`w-full h-[220px] flex items-center justify-center rounded-t-[24px] overflow-hidden ${project.whiteBg ? 'bg-white p-6' : ''}`}>
+                <img 
+                  src={project.logo} 
+                  alt={project.title} 
+                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${project.whiteBg ? 'object-contain' : 'object-cover'}`} 
+                />
               </div>
               <div className="p-8 flex-grow flex flex-col">
                 <div className="flex justify-between items-center mb-6">
@@ -112,8 +120,8 @@ export default function Portfolio() {
 
           {/* TU Ilmenau */}
           <div className="flex-1 min-w-[320px] max-w-[450px] glass-card flex flex-col p-0 animate-fade-in-up [animation-delay:0.8s]">
-            <div className="w-full h-[200px] flex items-center justify-center rounded-t-[24px] overflow-hidden">
-              <img src="/images/TU_Ilmenau_Logo_black_green.png" alt="TU Ilmenau" className="w-full h-full object-cover" />
+            <div className="w-full h-[200px] flex items-center justify-center rounded-t-[24px] overflow-hidden bg-white p-6">
+              <img src="/images/TU_Ilmenau_Logo_black_green.png" alt="TU Ilmenau" className="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
             </div>
             <div className="p-6 flex-grow flex flex-col">
               <div className="flex justify-between items-center mb-4">
