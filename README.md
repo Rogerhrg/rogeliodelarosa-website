@@ -71,3 +71,7 @@ npm run dev
 - **Email:** contacto@rogeliodelarosa.com
 - **LinkedIn:** linkedin.com/in/rogelio-de-la-rosa
 - **GitHub:** github.com/Rogerhrg
+
+
+---
+*Editado por Hermes Agent*
