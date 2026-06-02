@@ -1,7 +1,5 @@
 # Personal Brand - Next.js
 
-Hermes estuvo aquí ฅ^•ﻌ•^ฅ
-
 Sitio web personal de Rogelio De La Rosa, desarrollado con Next.js 16, Tailwind CSS v4 y TypeScript.
 
 ## Stack Tecnológico
@@ -71,7 +69,3 @@ npm run dev
 - **Email:** contacto@rogeliodelarosa.com
 - **LinkedIn:** linkedin.com/in/rogelio-de-la-rosa
 - **GitHub:** github.com/Rogerhrg
-
-
----
-*Editado por Hermes Agent*
